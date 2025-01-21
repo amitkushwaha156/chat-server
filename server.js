@@ -4,6 +4,7 @@ const http = require('http');
 const socketIo = require('socket.io');
 
 const app = express();
+const port = process.env.PORT || 3000;
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
     cors: {
@@ -78,6 +79,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3001, '0.0.0.0', () => {
+server.listen(port || 3000, '0.0.0.0', () => {
     console.log('Chat server is running on port 3001');
 });
